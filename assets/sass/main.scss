@@ -1,0 +1,95 @@
+@import 'lib/vars';
+@import 'lib/mixins';
+@import 'lib/reboot';
+@import 'lib/fontawesome/font-awesome';
+@import 'lib/fontface';
+@import 'lib/keyframes';
+
+
+$corporateColor: tomato;
+
+* {
+    border: 1px solid $corporateColor;
+}
+
+html,
+body {
+    font-size: $base * 2;
+    font-family: $font_family_base;
+    line-height: $base * 3;
+    color: $body_color;
+    min-height: 100vh;
+}
+
+
+.app {
+    display: grid;
+    grid-template-rows: auto 150px 1fr auto;
+    grid-template-columns: 1fr;
+    min-height: 100vh;
+
+    .header {
+        grid-area: 1 / 1 / span 1 / span 1;
+    }
+    .main {
+        grid-area: 2 / 1 / span 2 / span 1;
+    }
+    .footer {
+        grid-area: 4 / 1 / span 1 / span 1;
+    }
+    .spinner {
+        grid-area: 1 / 1 / -1 / span 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 4;
+    }
+    .overlay {
+        grid-area: 3 / 1 / span 1 / span 1;
+        z-index: 4;
+    }
+    .black_overlay {
+        grid-area: 1 / 1 / -1 / -1;
+        z-index: 3;
+    }
+}
+
+
+
+.spinner {
+    visibility: hidden;
+    &.opened {
+        visibility: visible;
+    }
+}
+
+.overlay {
+    background-color: rgba(white, .9);
+    border-radius: 40px 40px 0 0;
+    padding: 1rem;
+    box-shadow: 0 3px 5px rgba(black, .2);
+
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: all 350ms ease;
+
+    &.opened {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+        transition: all 350ms ease;
+    }
+}
+.black_overlay {
+    background-color: rgba(black, .7);
+    visibility: hidden;
+    opacity: 0;
+    transition: all 350ms ease;
+
+    &.opened {
+        visibility: visible;
+        opacity: 1;
+        transition: all 350ms ease;
+    }
+}

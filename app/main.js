@@ -125,7 +125,7 @@ const renderMarkers = () => {
         //
         map.flyTo({
             center: [lng,lat],
-            zoom: 9
+            zoom: 15
         })
 
     });

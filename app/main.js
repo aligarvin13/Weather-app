@@ -208,7 +208,6 @@ const renderSingleViewHeader = () => {
 }
 
 const renderSingleViewMain = () => {
-    console.log(weather);
     const main = document.querySelector(".main");
     main.innerHTML = 
     `
